@@ -1,0 +1,42 @@
+@use '../../variables.scss' as *;
+
+.container {
+  background-color: $white;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  padding: 1rem 0rem 0;
+  max-width: 1110px;
+  margin: 0 auto;
+
+  @include desktop {
+    & {
+      padding: 3rem 1.5rem 0;
+    }
+  }
+
+  @include tablet {
+    & {
+      padding: 2.4rem;
+    }
+  }
+
+  @include tablet-middle{
+    & {
+      padding: 1.5rem;
+    }
+  }
+
+  @include mobile-L{
+    & {
+      padding: 0.4rem;
+    }
+  }
+}
+
+
+
+
+

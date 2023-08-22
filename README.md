@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# Memory game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Memory Game](./screenshots/home_desktop.png)
 
-## Available Scripts
+## The challenge
 
-In the project directory, you can run:
+This project is my solution of a challenge. The challenge is to build a memory game from a figma file. It has 2 pages basicaly. One from home and other for the game. The style of the cards can be number or icons. The number of players can be from 1 up to 4.
 
-### `npm start`
+### Home Page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+At Home page, the user can:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Choose the theme of the game. It can be either **numbers** or **icons**.
+* Choose the amount of players. It can be **1**, **2**, **3** or **4**.
+* Choose the grid size. It can be **4x4** or **6x6**. If it is **4x4**, will have 16 cards available to the game. 36 cards otherwise.
 
-### `npm test`
+After picking up the options, the user can click on __Start__ button to start the game. On the game page, it will display the board and the points of each player. If it is a single player, will show a timer and number of moves.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app has styles for all situations. If the choice is correct or wrong, cards will change color according to the situation. Also the selected one will be marked.
 
-### `npm run build`
+In the end, the result will be displayed. Can have a winner or a tie. The app can handle both situations.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+__The application is **100% responsive**__
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* React
+* TypeScript
+* SCSS
+* HTML
 
-### `npm run eject`
+## ScreenShots
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Desktop
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Home page                  |  Game Page                | Result Page
+:-------------------------:|:-------------------------:|:-------------:
+![Home Page](./screenshots/home_desktop.png)  |  ![Game Page](./screenshots/game_desktop.png) | ![Result Page](./screenshots/result_desktop.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Mobile
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Home page                  |  Game Page                | Result Page
+:-------------------------:|:-------------------------:|:-------------:
+![Home Page](./screenshots/home_mobile.png)  |  ![Game Page](./screenshots/game_mobile.png) | ![Result Page](./screenshots/result_mobile.png)
 
-## Learn More
+## Conclusion
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This challenge was a real challenge. I used lots of hooks and concepts of react, like ContextAPI and immutability. 
+The information about the players was used in multiple components. Because of this, I choose ContextAPI to avoid __prop drilling__.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For styles wasn't difficult. Sass helps us a lot during code. With Sass I could nest my styles, use variables and mixins.
+
+This app will be running on Vercel. You can see it running by clicking on the link above near description.
+
+Thank you.
+Best regards.
+Vinicius.

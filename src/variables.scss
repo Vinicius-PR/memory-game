@@ -1,0 +1,66 @@
+// Colors
+
+$light-orange: #FDA214;
+$light-orange-hover: #FFB84A;
+
+$light-blue-100: #DFE7EC;
+$light-blue-200: #BCCED9;
+$light-blue-300: #7191A5;
+$light-blue-400: #6395B8;
+
+$dark-blue-700: #304859;
+$dark-blue-800: #152938;
+
+$light-gray: #F2F2F2;
+
+$white: #FCFCFC;
+
+$backgroud-modal: rgba(0, 0, 0, 0.567);
+
+// Breakpoints
+
+$desktop-breakpoint: 1110px;
+$tablet-breakpoint: 768px;
+$tablet-middle-breakpoint: 590px;
+$mobile-L-breakpoint: 425px;
+$mobile-M-breakpoint: 375px;
+$nesthub-height-breackpoint: 600px;
+
+// Mixins
+
+@mixin desktop {
+  @media (max-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet-middle {
+  @media (max-width: $tablet-middle-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile-L {
+  @media (max-width: $mobile-L-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile-M {
+  @media (max-width: $mobile-M-breakpoint) {
+    @content;
+  }
+}
+
+// To work fine at Nest Hub Dimension:
+@mixin nesthub-height {
+  @media (max-height: $nesthub-height-breackpoint) {
+    @content;
+  }
+}
