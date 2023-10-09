@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect, useCallback } from 'react'
 import { GameContext } from '../../context/GameContext'
+import { useNavigate } from 'react-router-dom'
 
 import Header from '../../components/Header'
 import Board from '../../components/Board'
@@ -46,41 +47,41 @@ export default function Game() {
 
   const arrayNumbers6x6 = [
     {id: 1, data: '1', status:''},
-    {id: 1, data: '1', status:''},
-    {id: 2, data: '2', status:''},
-    {id: 2, data: '2', status:''},
-    {id: 3, data: '3', status:''},
-    {id: 3, data: '3', status:''},
-    {id: 4, data: '4', status:''},
-    {id: 4, data: '4', status:''},
-    {id: 5, data: '5', status:''},
-    {id: 5, data: '5', status:''},
-    {id: 6, data: '6', status:''},
-    {id: 6, data: '6', status:''},
-    {id: 7, data: '7', status:''},
-    {id: 7, data: '7', status:''},
-    {id: 8, data: '8', status:''},
-    {id: 8, data: '8', status:''},
-    {id: 9, data: '9', status:''},
-    {id: 9, data: '9', status:''},
-    {id: 10, data: '10', status:''},
-    {id: 10, data: '10', status:''},
-    {id: 11, data: '11', status:''},
-    {id: 11, data: '11', status:''},
-    {id: 12, data: '12', status:''},
-    {id: 12, data: '12', status:''},
-    {id: 13, data: '13', status:''},
-    {id: 13, data: '13', status:''},
-    {id: 14, data: '14', status:''},
-    {id: 14, data: '14', status:''},
-    {id: 15, data: '15', status:''},
-    {id: 15, data: '15', status:''},
-    {id: 16, data: '16', status:''},
-    {id: 16, data: '16', status:''},
-    {id: 17, data: '17', status:''},
-    {id: 17, data: '17', status:''},
-    {id: 18, data: '18', status:''},
-    {id: 18, data: '18', status:''},
+    {id: 2, data: '1', status:''},
+    {id: 3, data: '2', status:''},
+    {id: 4, data: '2', status:''},
+    {id: 5, data: '3', status:''},
+    {id: 6, data: '3', status:''},
+    {id: 7, data: '4', status:''},
+    {id: 8, data: '4', status:''},
+    {id: 9, data: '5', status:''},
+    {id: 10, data: '5', status:''},
+    {id: 11, data: '6', status:''},
+    {id: 12, data: '6', status:''},
+    {id: 13, data: '7', status:''},
+    {id: 14, data: '7', status:''},
+    {id: 15, data: '8', status:''},
+    {id: 16, data: '8', status:''},
+    {id: 17, data: '9', status:''},
+    {id: 18, data: '9', status:''},
+    {id: 19, data: '10', status:''},
+    {id: 20, data: '10', status:''},
+    {id: 21, data: '11', status:''},
+    {id: 22, data: '11', status:''},
+    {id: 23, data: '12', status:''},
+    {id: 24, data: '12', status:''},
+    {id: 25, data: '13', status:''},
+    {id: 26, data: '13', status:''},
+    {id: 27, data: '14', status:''},
+    {id: 28, data: '14', status:''},
+    {id: 29, data: '15', status:''},
+    {id: 30, data: '15', status:''},
+    {id: 31, data: '16', status:''},
+    {id: 32, data: '16', status:''},
+    {id: 33, data: '17', status:''},
+    {id: 34, data: '17', status:''},
+    {id: 35, data: '18', status:''},
+    {id: 36, data: '18', status:''},
   ]
   const arrayNumbers4x4 = [
     {id: 1, data: '1', status:''},
@@ -164,6 +165,7 @@ export default function Game() {
   const [amountCardsAvailable, setAmountCardsAvailable] = useState(-1)
   const [canClickCard, setCanClickCard] = useState(true)
   const [currentPlayer, setCurrentPlayer] = useState(1)
+  let navigate = useNavigate()
 
   function shuffle(array: CardProps[]) {
     let currentIndex = array.length;
@@ -320,6 +322,11 @@ export default function Game() {
   useEffect (() => {
     handleCreateCardItems()
   }, [])
+
+  window.addEventListener('load', () => {
+    handleNewGame()
+    navigate('/')
+  })
  
   return (
     <main className='container'>

@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { GameContextProvider } from './context/GameContext';
 
 function App() {
+
   return (
     <GameContextProvider>
       <BrowserRouter>
