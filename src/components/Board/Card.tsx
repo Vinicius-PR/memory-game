@@ -4,7 +4,7 @@ import './styles.scss'
 interface CardsProps {
   card: CardProps
   index: number
-  themeGame: string
+  themeGame: '' | 'numbers' | 'icons'
   handleClick: (id: number) => void
 }
 

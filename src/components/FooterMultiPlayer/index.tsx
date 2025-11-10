@@ -1,11 +1,11 @@
 import { useContext,useState, useEffect } from 'react'
 import { GameContext } from '../../context/GameContext'
 
-interface FooterMultiPlayer {
+interface FooterMultiPlayerProps {
   currentPlayer: number
 }
 
-export default function FooterMultiPlayer({ currentPlayer } : FooterMultiPlayer) {
+export default function FooterMultiPlayer({ currentPlayer } : FooterMultiPlayerProps) {
 
   const { pointsPlayers} = useContext(GameContext)
 

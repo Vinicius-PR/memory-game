@@ -2,7 +2,7 @@
 
 .board {
   width: min-content;
-  margin: 7rem auto;
+  margin: 3rem auto;
 
   div {
     background-color: $dark-blue-700;
@@ -123,20 +123,20 @@
 .board-4x4 {
   display: grid;
   grid-template-columns: repeat(4 , 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 
   div {
     font-size: 3.5rem;
-    width: 7.3rem;
-    height: 7.3rem;
+    width: 6rem;
+    height: 6rem;
   }
 
   @include tablet-middle {
     & {
       div {
         font-size: 2.5rem;
-        width: 5.5rem;
-        height: 5.5rem;
+        width: 5rem;
+        height: 5rem;
       }
       gap: 1rem; 
     }

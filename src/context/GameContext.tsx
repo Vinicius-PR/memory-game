@@ -1,16 +1,16 @@
-import { createContext, ReactNode, useEffect, useRef, useState } from 'react';
+import { createContext, ReactNode, useRef, useState } from 'react';
 
 interface GameContextTypes {
-  themeGame: string
+  themeGame: '' | 'numbers' | 'icons'
   numberOfPlayers: number
-  gridSize: string 
+  gridSize: '' | '4x4' | '6x6'
   pointsPlayers: pointsPlayersProps[]
   singlePlayer: singlePlayerProps
   dateStartSinglePlayer: any
 
-  handleSetThemeGame: (theme: string) => void
+  handleSetThemeGame: (theme: '' | 'numbers' | 'icons') => void
   handleSetNumberOfPlayers: (num: number) => void
-  handleSetGridSize: (grid:string) => void
+  handleSetGridSize: (grid:'' | '4x4' | '6x6') => void
   handleSetPointsPlayers: (id: number) => void
   handleIncrementMovesSinglePlayer: () => void
   handleSetTimeSinglePlayer: (time: string) => void
@@ -41,9 +41,9 @@ interface singlePlayerProps {
 export const GameContext = createContext({} as GameContextTypes)
 
 export function GameContextProvider({children}: GameContextProviderProps) {
-  const [themeGame, setThemeGame] = useState('')
+  const [themeGame, setThemeGame] = useState<'' | 'numbers' | 'icons'>('')
   const [numberOfPlayers, setNumberOfPlayers] = useState(-1)
-  const [gridSize, setGridSize] = useState('')
+  const [gridSize, setGridSize] = useState<'' | '4x4' | '6x6'>('')
   const [pointsPlayers, setPointsPlayers] = useState<pointsPlayersProps[]>([])
   const [singlePlayer, setSinglePlayer] = useState<singlePlayerProps>({id: 1, name: 'Player 1', moves: 0, time: '00:00'})
   
@@ -54,11 +54,11 @@ export function GameContextProvider({children}: GameContextProviderProps) {
     setNumberOfPlayers(num)
   }
 
-  function handleSetThemeGame(theme:string) {
+  function handleSetThemeGame(theme:'' | 'numbers' | 'icons') {
     setThemeGame(theme)
   }
 
-  function handleSetGridSize(grid:string) {
+  function handleSetGridSize(grid:'' | '4x4' | '6x6') {
     setGridSize(grid)
   }
 

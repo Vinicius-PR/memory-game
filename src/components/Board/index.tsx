@@ -17,7 +17,7 @@ interface BoardProps {
 export default function Board({cardItems, handleClick, amountCardsAvailable, newGame, restart } : BoardProps) {
   const { gridSize, themeGame} = useContext(GameContext)
   
-
+console.log('amountCardsAvailable', amountCardsAvailable)
   return (
     <>
       <section className={gridSize === '4x4' ? 'board board-4x4' : 'board board-6x6'}>

@@ -27,10 +27,18 @@ import bugSvg from '../../assets/icons/bug-solid.svg'
 
 import './styles.scss';
 
+enum CardStatus {
+  Empty = '',
+  Up = 'up',
+  Correct = 'correct',
+  Wrong = 'wrong',
+  UpSelected = 'up selected',
+}
+
 export interface CardProps {
   id: number
   data: string
-  status: string
+  status: CardStatus
 }
 
 export default function Game() {
@@ -46,118 +54,118 @@ export default function Game() {
   } = useContext(GameContext)
 
   const arrayNumbers6x6 = [
-    {id: 1, data: '1', status:''},
-    {id: 2, data: '1', status:''},
-    {id: 3, data: '2', status:''},
-    {id: 4, data: '2', status:''},
-    {id: 5, data: '3', status:''},
-    {id: 6, data: '3', status:''},
-    {id: 7, data: '4', status:''},
-    {id: 8, data: '4', status:''},
-    {id: 9, data: '5', status:''},
-    {id: 10, data: '5', status:''},
-    {id: 11, data: '6', status:''},
-    {id: 12, data: '6', status:''},
-    {id: 13, data: '7', status:''},
-    {id: 14, data: '7', status:''},
-    {id: 15, data: '8', status:''},
-    {id: 16, data: '8', status:''},
-    {id: 17, data: '9', status:''},
-    {id: 18, data: '9', status:''},
-    {id: 19, data: '10', status:''},
-    {id: 20, data: '10', status:''},
-    {id: 21, data: '11', status:''},
-    {id: 22, data: '11', status:''},
-    {id: 23, data: '12', status:''},
-    {id: 24, data: '12', status:''},
-    {id: 25, data: '13', status:''},
-    {id: 26, data: '13', status:''},
-    {id: 27, data: '14', status:''},
-    {id: 28, data: '14', status:''},
-    {id: 29, data: '15', status:''},
-    {id: 30, data: '15', status:''},
-    {id: 31, data: '16', status:''},
-    {id: 32, data: '16', status:''},
-    {id: 33, data: '17', status:''},
-    {id: 34, data: '17', status:''},
-    {id: 35, data: '18', status:''},
-    {id: 36, data: '18', status:''},
+    {id: 1, data: '1', status:CardStatus.Empty},
+    {id: 2, data: '1', status:CardStatus.Empty},
+    {id: 3, data: '2', status:CardStatus.Empty},
+    {id: 4, data: '2', status:CardStatus.Empty},
+    {id: 5, data: '3', status:CardStatus.Empty},
+    {id: 6, data: '3', status:CardStatus.Empty},
+    {id: 7, data: '4', status:CardStatus.Empty},
+    {id: 8, data: '4', status:CardStatus.Empty},
+    {id: 9, data: '5', status:CardStatus.Empty},
+    {id: 10, data: '5', status:CardStatus.Empty},
+    {id: 11, data: '6', status:CardStatus.Empty},
+    {id: 12, data: '6', status:CardStatus.Empty},
+    {id: 13, data: '7', status:CardStatus.Empty},
+    {id: 14, data: '7', status:CardStatus.Empty},
+    {id: 15, data: '8', status:CardStatus.Empty},
+    {id: 16, data: '8', status:CardStatus.Empty},
+    {id: 17, data: '9', status:CardStatus.Empty},
+    {id: 18, data: '9', status:CardStatus.Empty},
+    {id: 19, data: '10', status:CardStatus.Empty},
+    {id: 20, data: '10', status:CardStatus.Empty},
+    {id: 21, data: '11', status:CardStatus.Empty},
+    {id: 22, data: '11', status:CardStatus.Empty},
+    {id: 23, data: '12', status:CardStatus.Empty},
+    {id: 24, data: '12', status:CardStatus.Empty},
+    {id: 25, data: '13', status:CardStatus.Empty},
+    {id: 26, data: '13', status:CardStatus.Empty},
+    {id: 27, data: '14', status:CardStatus.Empty},
+    {id: 28, data: '14', status:CardStatus.Empty},
+    {id: 29, data: '15', status:CardStatus.Empty},
+    {id: 30, data: '15', status:CardStatus.Empty},
+    {id: 31, data: '16', status:CardStatus.Empty},
+    {id: 32, data: '16', status:CardStatus.Empty},
+    {id: 33, data: '17', status:CardStatus.Empty},
+    {id: 34, data: '17', status:CardStatus.Empty},
+    {id: 35, data: '18', status:CardStatus.Empty},
+    {id: 36, data: '18', status:CardStatus.Empty},
   ]
   const arrayNumbers4x4 = [
-    {id: 1, data: '1', status:''},
-    {id: 2, data: '1', status:''},
-    {id: 3, data: '2', status:''},
-    {id: 4, data: '2', status:''},
-    {id: 5, data: '3', status:''},
-    {id: 6, data: '3', status:''},
-    {id: 7, data: '4', status:''},
-    {id: 8, data: '4', status:''},
-    {id: 9, data: '5', status:''},
-    {id: 10, data: '5', status:''},
-    {id: 11, data: '6', status:''},
-    {id: 12, data: '6', status:''},
-    {id: 13, data: '7', status:''},
-    {id: 14, data: '7', status:''},
-    {id: 15, data: '8', status:''},
-    {id: 16, data: '8', status:''}
+    {id: 1, data: '1', status:CardStatus.Empty},
+    {id: 2, data: '1', status:CardStatus.Empty},
+    {id: 3, data: '2', status:CardStatus.Empty},
+    {id: 4, data: '2', status:CardStatus.Empty},
+    {id: 5, data: '3', status:CardStatus.Empty},
+    {id: 6, data: '3', status:CardStatus.Empty},
+    {id: 7, data: '4', status:CardStatus.Empty},
+    {id: 8, data: '4', status:CardStatus.Empty},
+    {id: 9, data: '5', status:CardStatus.Empty},
+    {id: 10, data: '5', status:CardStatus.Empty},
+    {id: 11, data: '6', status:CardStatus.Empty},
+    {id: 12, data: '6', status:CardStatus.Empty},
+    {id: 13, data: '7', status:CardStatus.Empty},
+    {id: 14, data: '7', status:CardStatus.Empty},
+    {id: 15, data: '8', status:CardStatus.Empty},
+    {id: 16, data: '8', status:CardStatus.Empty}
   ]
 
   const arrayIcons4x4 = [
-    {id: 1, data: dragonSvg, status:''},
-    {id: 2, data: dragonSvg, status:''},
-    {id: 3, data: catSvg, status:''},
-    {id: 4, data: catSvg, status:''},
-    {id: 5, data: champagneSvg, status:''},
-    {id: 6, data: champagneSvg, status:''},
-    {id: 7, data: chessSvg, status:''},
-    {id: 8, data: chessSvg, status:''},
-    {id: 9, data: cloudSunSvg, status:''},
-    {id: 10, data: cloudSunSvg, status:''},
-    {id: 11, data: crossSvg, status:''},
-    {id: 12, data: crossSvg, status:''},
-    {id: 13, data: diceSvg, status:''},
-    {id: 14, data: diceSvg, status:''},
-    {id: 15, data: doveSvg, status:''},
-    {id: 16, data: doveSvg, status:''}
+    {id: 1, data: dragonSvg, status:CardStatus.Empty},
+    {id: 2, data: dragonSvg, status:CardStatus.Empty},
+    {id: 3, data: catSvg, status:CardStatus.Empty},
+    {id: 4, data: catSvg, status:CardStatus.Empty},
+    {id: 5, data: champagneSvg, status:CardStatus.Empty},
+    {id: 6, data: champagneSvg, status:CardStatus.Empty},
+    {id: 7, data: chessSvg, status:CardStatus.Empty},
+    {id: 8, data: chessSvg, status:CardStatus.Empty},
+    {id: 9, data: cloudSunSvg, status:CardStatus.Empty},
+    {id: 10, data: cloudSunSvg, status:CardStatus.Empty},
+    {id: 11, data: crossSvg, status:CardStatus.Empty},
+    {id: 12, data: crossSvg, status:CardStatus.Empty},
+    {id: 13, data: diceSvg, status:CardStatus.Empty},
+    {id: 14, data: diceSvg, status:CardStatus.Empty},
+    {id: 15, data: doveSvg, status:CardStatus.Empty},
+    {id: 16, data: doveSvg, status:CardStatus.Empty}
   ]
 
   const arrayIcons6x6 = [
-    {id: 1, data: dragonSvg, status:''},
-    {id: 2, data: dragonSvg, status:''},
-    {id: 3, data: catSvg, status:''},
-    {id: 4, data: catSvg, status:''},
-    {id: 5, data: champagneSvg, status:''},
-    {id: 6, data: champagneSvg, status:''},
-    {id: 7, data: chessSvg, status:''},
-    {id: 8, data: chessSvg, status:''},
-    {id: 9, data: cloudSunSvg, status:''},
-    {id: 10, data: cloudSunSvg, status:''},
-    {id: 11, data: crossSvg, status:''},
-    {id: 12, data: crossSvg, status:''},
-    {id: 13, data: diceSvg, status:''},
-    {id: 14, data: diceSvg, status:''},
-    {id: 15, data: doveSvg, status:''},
-    {id: 16, data: doveSvg, status:''},
-    {id: 17, data: ghostSvg, status:''},
-    {id: 18, data: ghostSvg, status:''},
-    {id: 19, data: heartSvg, status:''},
-    {id: 20, data: heartSvg, status:''},
-    {id: 21, data: motorcycleSvg, status:''},
-    {id: 22, data: motorcycleSvg, status:''},
-    {id: 23, data: personSvg, status:''},
-    {id: 24, data: personSvg, status:''},
-    {id: 25, data: pizzaSvg, status:''},
-    {id: 26, data: pizzaSvg, status:''},
-    {id: 27, data: planeSvg, status:''},
-    {id: 28, data: planeSvg, status:''},
-    {id: 29, data: rainbowSvg, status:''},
-    {id: 30, data: rainbowSvg, status:''},
-    {id: 31, data: skullSvg, status:''},
-    {id: 32, data: skullSvg, status:''},
-    {id: 33, data: wifiSvg, status:''},
-    {id: 34, data: wifiSvg, status:''},
-    {id: 35, data: bugSvg, status:''},
-    {id: 36, data: bugSvg, status:''},
+    {id: 1, data: dragonSvg, status:CardStatus.Empty},
+    {id: 2, data: dragonSvg, status:CardStatus.Empty},
+    {id: 3, data: catSvg, status:CardStatus.Empty},
+    {id: 4, data: catSvg, status:CardStatus.Empty},
+    {id: 5, data: champagneSvg, status:CardStatus.Empty},
+    {id: 6, data: champagneSvg, status:CardStatus.Empty},
+    {id: 7, data: chessSvg, status:CardStatus.Empty},
+    {id: 8, data: chessSvg, status:CardStatus.Empty},
+    {id: 9, data: cloudSunSvg, status:CardStatus.Empty},
+    {id: 10, data: cloudSunSvg, status:CardStatus.Empty},
+    {id: 11, data: crossSvg, status:CardStatus.Empty},
+    {id: 12, data: crossSvg, status:CardStatus.Empty},
+    {id: 13, data: diceSvg, status:CardStatus.Empty},
+    {id: 14, data: diceSvg, status:CardStatus.Empty},
+    {id: 15, data: doveSvg, status:CardStatus.Empty},
+    {id: 16, data: doveSvg, status:CardStatus.Empty},
+    {id: 17, data: ghostSvg, status:CardStatus.Empty},
+    {id: 18, data: ghostSvg, status:CardStatus.Empty},
+    {id: 19, data: heartSvg, status:CardStatus.Empty},
+    {id: 20, data: heartSvg, status:CardStatus.Empty},
+    {id: 21, data: motorcycleSvg, status:CardStatus.Empty},
+    {id: 22, data: motorcycleSvg, status:CardStatus.Empty},
+    {id: 23, data: personSvg, status:CardStatus.Empty},
+    {id: 24, data: personSvg, status:CardStatus.Empty},
+    {id: 25, data: pizzaSvg, status:CardStatus.Empty},
+    {id: 26, data: pizzaSvg, status:CardStatus.Empty},
+    {id: 27, data: planeSvg, status:CardStatus.Empty},
+    {id: 28, data: planeSvg, status:CardStatus.Empty},
+    {id: 29, data: rainbowSvg, status:CardStatus.Empty},
+    {id: 30, data: rainbowSvg, status:CardStatus.Empty},
+    {id: 31, data: skullSvg, status:CardStatus.Empty},
+    {id: 32, data: skullSvg, status:CardStatus.Empty},
+    {id: 33, data: wifiSvg, status:CardStatus.Empty},
+    {id: 34, data: wifiSvg, status:CardStatus.Empty},
+    {id: 35, data: bugSvg, status:CardStatus.Empty},
+    {id: 36, data: bugSvg, status:CardStatus.Empty},
   ]
 
   const [prev, setPrev] = useState(-1)
@@ -179,8 +187,7 @@ export default function Game() {
       currentIndex--;
   
       // And swap it with the current element.
-      // Status is assign to up to show cards. Will hide them after 0.5s at handleCreateCardItems funcion.
-      [array[currentIndex], array[randomIndex]] = [{...array[randomIndex], status: 'up'}, {...array[currentIndex], status: 'up'}];
+      [array[currentIndex], array[randomIndex]] = [{...array[randomIndex]}, {...array[currentIndex]}];
     }
   
     return array;
@@ -207,26 +214,19 @@ export default function Game() {
       }
       return []
     })
-    
-    // To hide cards after 0.5s
-    setTimeout(() => {
-      setCardItems((state) => state.map((item) => {
-        return {...item, status: ''}
-      }))
-    }, 500)
   }, [arrayIcons4x4, arrayIcons6x6, arrayNumbers4x4, arrayNumbers6x6, gridSize, themeGame])
 
   // Function to change the status fo the card (className) from 'correct' to 'up' and from 'wrong' to '', when change the currentPlayer.
   function changeStatusOfCards() {
     setCardItems((state) => {
       const newCardState = state.map((item) => {
-        if (item.status === 'correct' && numberOfPlayers > 1) {
+        if (item.status === CardStatus.Correct && numberOfPlayers > 1) {
           return {
-            ...item, status: 'up'
+            ...item, status: CardStatus.Up
           }
-        } else if (item.status === 'wrong') {
+        } else if (item.status === CardStatus.Wrong) {
           return {
-            ...item, status: ''
+            ...item, status: CardStatus.Empty
           }
         } else {
           return item
@@ -237,13 +237,14 @@ export default function Game() {
   }
 
   function checkChoices(current:number){
+
     if(cardItems[current].data === cardItems[prev].data){
       // In this case the current card data will be the same as previous card data
       setCardItems((state) => {
         const currentCardData = state[current].data; // same as previous card data
         const newCardState = state.map((item) => {
           if (currentCardData === item.data) {
-            return {...item, status: 'correct'}
+            return {...item, status: CardStatus.Correct}
           } else {
             return item
           }
@@ -264,7 +265,7 @@ export default function Game() {
         const currentCardId = state[current].id
         const newCardState = state.map((item) => {
           if (currentCardId === item.id || prevCardId === item.id) {
-            return {...item, status: 'wrong'}
+            return {...item, status: CardStatus.Wrong}
           } else {
             return item
           }
@@ -293,7 +294,7 @@ export default function Game() {
           const currentCardClicked = state[index]
           const newCardState = state.map((item) => {
             if (currentCardClicked.id === item.id) {
-              return {...item, status: 'up selected'}
+              return {...item, status: CardStatus.UpSelected}
             } else {
               return item
             }
